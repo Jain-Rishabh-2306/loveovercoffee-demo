@@ -85,10 +85,10 @@ function sendContactForm() {
     }
 
     const contactParams = {
-        customer_name: name.value,
-        customer_phone: phone.value,
-        customer_message: message.value
-    };
+    customer_name: name.value,
+    customer_phone: phone.value,
+    customer_message: message.value
+};
 
     emailjs.send("service_99k4iig", "template_xeiac2b", contactParams)
         .then(function () {
