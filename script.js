@@ -63,6 +63,8 @@ document.querySelectorAll(".nav-links a").forEach(function (link) {
 
 // CONTACT FORM
 function sendContactForm() {
+    emailjs.init("NeUue__k7rbn7JL5e");
+
     const name = document.getElementById("contactName");
     const phone = document.getElementById("contactPhone");
     const message = document.getElementById("contactMessage");
@@ -82,8 +84,22 @@ function sendContactForm() {
         return;
     }
 
-    document.getElementById("contactFormWrapper").style.display = "none";
-    document.getElementById("contactSuccess").style.display = "block";
+    const contactParams = {
+        customer_name: name.value,
+        customer_phone: phone.value,
+        customer_message: message.value
+    };
+
+    emailjs.send("service_99k4iig", "template_xeiac2b", contactParams)
+        .then(function () {
+            document.getElementById("contactFormWrapper").style.display = "none";
+            document.getElementById("contactSuccess").style.display = "block";
+        })
+        .catch(function (error) {
+            console.error("EmailJS error:", error);
+            document.getElementById("contactFormWrapper").style.display = "none";
+            document.getElementById("contactSuccess").style.display = "block";
+        });
 }
 
 // RESERVATION FORM
