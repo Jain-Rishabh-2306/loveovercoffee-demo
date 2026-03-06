@@ -132,6 +132,7 @@ function sendReservation() {
     const customerParams = {
         customer_name: name.value,
         customer_phone: phone.value,
+        customer_email: document.getElementById("resEmail").value,
         reservation_date: date.value,
         reservation_time: time.value,
         guests: guests.value
