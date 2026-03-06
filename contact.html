@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Reservations | Love Over Coffee</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader-wrapper">
+    <div class="coffee-loader"></div>
+</div>
+
+<!-- Navbar -->
+<header>
+<nav class="navbar">
+<div class="container nav-container">
+<div class="logo">Love Over Coffee</div>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="menu.html">Menu</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="contact.html" class="active">Contact</a></li>
+</ul>
+<div class="hamburger"><i class="fas fa-bars"></i></div>
+</div>
+</nav>
+</header>
+
+<!-- Contact Page -->
+<section class="contact-page">
+<div class="container">
+
+<h2 class="section-title reveal">Get In Touch</h2>
+<p class="section-subtitle reveal">We'd love to hear from you</p>
+
+<div class="contact-grid reveal">
+
+<!-- Contact Info -->
+<div class="contact-info">
+<h3>Visit Us</h3>
+
+<div class="contact-info-item">
+    <i class="fas fa-map-marker-alt"></i>
+    <div>
+        <strong>Address</strong>
+        <p>Plot No 1, Santosh Vihar, Mahal Rd<br>Jagatpura, Jaipur, Rajasthan 302033</p>
+    </div>
+</div>
+
+<div class="contact-info-item">
+    <i class="fas fa-phone"></i>
+    <div>
+        <strong>Phone</strong>
+        <p><a href="tel:+91XXXXXXXXXX" style="color:var(--secondary); text-decoration:none;">+91 XXXXXXXXXX</a></p>
+    </div>
+</div>
+
+<div class="contact-info-item">
+    <i class="fas fa-clock"></i>
+    <div>
+        <strong>Opening Hours</strong>
+        <p>Monday – Sunday<br>9:00 AM – 12:00 AM</p>
+    </div>
+</div>
+
+<div class="contact-info-item">
+    <i class="fas fa-rupee-sign"></i>
+    <div>
+        <strong>Price Range</strong>
+        <p>₹200 – ₹400 per person</p>
+    </div>
+</div>
+
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+</a>
+
+<div style="margin-top:30px;">
+<iframe
+src="https://www.google.com/maps?q=Santosh+Vihar+Mahal+Road+Jagatpura+Jaipur&output=embed"
+width="100%"
+height="280"
+style="border:0; border-radius:15px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+</div>
+
+</div>
+
+<!-- Contact Form -->
+<div class="contact-form">
+<h3>Send Us a Message</h3>
+
+<div id="contactFormWrapper">
+<div class="form-group">
+    <label>Your Name</label>
+    <input type="text" id="contactName" placeholder="Enter your name">
+</div>
+<div class="form-group">
+    <label>Phone Number</label>
+    <input type="tel" id="contactPhone" placeholder="Enter your phone number">
+</div>
+<div class="form-group">
+    <label>Message</label>
+    <textarea id="contactMessage" rows="5" placeholder="How can we help you?"></textarea>
+</div>
+<button class="btn btn-primary" onclick="sendContactForm()" style="width:100%; padding:14px;">Send Message</button>
+</div>
+
+<div id="contactSuccess" style="display:none; text-align:center; padding:40px 20px;">
+    <i class="fas fa-check-circle" style="font-size:50px; color:var(--secondary); margin-bottom:15px;"></i>
+    <h3 style="color:var(--primary); margin-bottom:10px;">Message Sent!</h3>
+    <p style="color:#777;">Thank you for reaching out. We'll get back to you shortly.</p>
+</div>
+
+</div>
+</div>
+
+<!-- Reservation Section -->
+<div class="reservation-section reveal">
+<h2 class="section-title" style="margin-bottom:10px;">Reserve a Table</h2>
+<p class="section-subtitle">Planning a coffee date or meetup? Book your table in advance</p>
+
+<div id="reservationFormWrapper">
+<div class="reservation-grid">
+<div class="form-group">
+    <label>Your Name</label>
+    <input type="text" id="resName" placeholder="Enter your name">
+</div>
+<div class="form-group">
+    <label>Phone Number</label>
+    <input type="tel" id="resPhone" placeholder="Enter your phone number">
+</div>
+<div class="form-group">
+    <label>Date</label>
+    <input type="date" id="resDate">
+</div>
+<div class="form-group">
+    <label>Time</label>
+    <input type="time" id="resTime">
+</div>
+<div class="form-group">
+    <label>Number of Guests</label>
+    <select id="resGuests">
+        <option value="">Select guests</option>
+        <option value="1">1 Person</option>
+        <option value="2">2 People</option>
+        <option value="3">3 People</option>
+        <option value="4">4 People</option>
+        <option value="5">5 People</option>
+        <option value="6">6+ People</option>
+    </select>
+</div>
+<div class="form-group">
+    <label>Special Request (Optional)</label>
+    <input type="text" id="resSpecial" placeholder="Birthday, anniversary, etc.">
+</div>
+</div>
+<div style="text-align:center; margin-top:20px;">
+<button class="btn btn-primary" onclick="sendReservation()" style="padding:14px 50px; font-size:16px;">Confirm Reservation</button>
+</div>
+</div>
+
+<div id="reservationSuccess" style="display:none; text-align:center; padding:40px 20px;">
+    <i class="fas fa-check-circle" style="font-size:60px; color:var(--secondary); margin-bottom:20px;"></i>
+    <h3 style="color:var(--primary); font-size:28px; margin-bottom:10px;">Table Reserved!</h3>
+    <p style="color:#777; font-size:16px;">Thank you! Your reservation is confirmed. We'll see you soon at Love Over Coffee.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<span class="logo">Love Over Coffee</span>
+<p>Plot No 1, Santosh Vihar, Mahal Rd, Jagatpura, Jaipur</p>
+<p>Open Daily: 9:00 AM – 12:00 AM</p>
+<p>📞 +91 XXXXXXXXXX</p>
+<div class="social-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+</div>
+<p style="margin-top:20px; font-size:12px; opacity:0.6;">© 2026 Love Over Coffee. All Rights Reserved.</p>
+</div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta">
+<a href="tel:+91XXXXXXXXXX" class="sticky-btn"><i class="fas fa-phone"></i> Call</a>
+<a href="https://wa.me/91XXXXXXXXXX" class="sticky-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="https://www.google.com/maps?q=Love+Over+Coffee+Jagatpura+Jaipur" target="_blank" class="sticky-btn"><i class="fas fa-directions"></i> Directions</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
